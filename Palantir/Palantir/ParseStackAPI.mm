@@ -17,14 +17,11 @@ std::vector< ChangeList* >* ParseXcodeStack( NSString* stackData, NSDateComponen
     */
    
    // IGNORE MEMORY LEAKS. PURELY FOR EXAMPLE PURPOSES. WILL USE SMART POINTERS LATER.
-   struct ChangeList* cl = new ChangeList();
-   cl->identifier = 16263717;
-   
    struct File* file1obj = new File();
    std::string file1 = "/Users/albertborges/sd/dev/oart/text/linelayout.cpp";
    file1obj->filename  = file1;
    file1obj->culpable = true;
-
+   
    struct File* file2obj = new File();
    std::string file2 = "/Users/albertborges/sd/dev/oart/text/test/Text_ut.cpp";
    file2obj->filename  = file2;
@@ -35,27 +32,29 @@ std::vector< ChangeList* >* ParseXcodeStack( NSString* stackData, NSDateComponen
    file3obj->filename  = file1;
    file3obj->culpable = false;
    
-   std::vector< struct File* >* files = new std::vector< struct File* >();
-   files->push_back(file1obj);
-   files->push_back(file2obj);
-   files->push_back(file3obj);
+   std::vector< struct File >* files = new std::vector< struct File >();
+   files->push_back(*file1obj);
+   files->push_back(*file2obj);
+   files->push_back(*file3obj);
    
-   std::vector< ChangeList* >* changelists = new std::vector< ChangeList* >();
-   changelists->push_back(cl);
+   struct ChangeList* cl = new ChangeList();
+   cl->identifier = 16263717;
+   cl->files = *files;
+   cl->author = "boalbe";
+   
+   std::vector< ChangeList > changelists;
+   changelists.push_back(*cl);
    
    return changelists;
 }
 
-std::vector< ChangeList* >* ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end )
+std::vector< ChangeList > ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end )
 {
    /*
     PARSING...
     */
    
    // IGNORE MEMORY LEAKS. PURELY FOR EXAMPLE PURPOSES. WILL USE SMART POINTERS LATER.
-   struct ChangeList* cl = new ChangeList();
-   cl->identifier = 16263717;
-   
    struct File* file1obj = new File();
    std::string file1 = "/Users/albertborges/sd/dev/oart/text/linelayout.cpp";
    file1obj->filename  = file1;
@@ -71,13 +70,18 @@ std::vector< ChangeList* >* ParseTimeProfilerStack( NSString* stackData, NSDateC
    file3obj->filename  = file1;
    file3obj->culpable = false;
    
-   std::vector< struct File* >* files = new std::vector< struct File* >();
-   files->push_back(file1obj);
-   files->push_back(file2obj);
-   files->push_back(file3obj);
+   std::vector< struct File >* files = new std::vector< struct File >();
+   files->push_back(*file1obj);
+   files->push_back(*file2obj);
+   files->push_back(*file3obj);
    
-   std::vector< ChangeList* >* changelists = new std::vector< ChangeList* >();
-   changelists->push_back(cl);
+   struct ChangeList* cl = new ChangeList();
+   cl->identifier = 16263717;
+   cl->files = *files;
+   cl->author = "boalbe";
+   
+   std::vector< ChangeList > changelists;
+   changelists.push_back(*cl);
    
    return changelists;
 }
