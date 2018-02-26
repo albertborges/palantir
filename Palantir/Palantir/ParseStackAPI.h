@@ -72,7 +72,7 @@ Sample stackData (NSString*) parameter:
  [components setMinute:00];
  [components setSecond:00];
 */
-std::vector< ChangeList* >* ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime );
+std::vector< ChangeList > ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime );
 
 /*
  Sample stackData (NSString*) parameter:

@@ -10,7 +10,7 @@
 #include <vector>
 #include "ParseStackAPI.h"
 
-std::vector< ChangeList* >* ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime )
+std::vector< ChangeList > ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime )
 {
    /*
     PARSING...
