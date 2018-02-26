@@ -14,6 +14,14 @@
    [super viewDidLoad];
 
    // Do any additional setup after loading the view.
+   
+   NSDateComponents *components = [[NSDateComponents alloc] init];
+   [components setYear:2018];
+   [components setMonth:2];
+   [components setDay:26];
+   [components setHour:22];
+   [components setMinute:00];
+   [components setSecond:00];
 }
 
 
