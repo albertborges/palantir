@@ -136,6 +136,6 @@ std::vector< ChangeList* >* ParseXcodeStack( NSString* stackData, NSDateComponen
  [components setMinute:00];
  [components setSecond:00];
  */
-std::vector< ChangeList* >* ParseTimeProfilerStack( NSString* stackData, NSDate* start, NSDate* end );
+std::vector< ChangeList* >* ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end );
 
 #endif /* ParseStackAPI_hpp */

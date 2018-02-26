@@ -46,7 +46,7 @@ std::vector< ChangeList* >* ParseXcodeStack( NSString* stackData, NSDateComponen
    return changelists;
 }
 
-std::vector< ChangeList* >* ParseTimeProfilerStack( NSString* stackData, NSDate* start, NSDate* end )
+std::vector< ChangeList* >* ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end )
 {
    /*
     PARSING...
