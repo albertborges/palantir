@@ -97,7 +97,6 @@
 				A81084BC20447D8A00EBD543 /* Sources */,
 				A81084BD20447D8A00EBD543 /* Frameworks */,
 				A81084BE20447D8A00EBD543 /* Resources */,
-				A8ECAE362044EE5700D943DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -156,22 +155,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A8ECAE362044EE5700D943DA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cp ~/.enlistments.plist Palantir/enlistments.plist\nls Palantir/enlistments.plist";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A81084BC20447D8A00EBD543 /* Sources */ = {
