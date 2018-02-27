@@ -25,12 +25,22 @@ struct File
 {
    std::string filename;
    bool culpable; // Used to determine if this file is the reason why this CL is being marked as questionable for the UI
+   
+   ~File()
+   {
+      // TODO BOALBE
+   }
 };
 
 struct SDResult
 {
    File file;
    std::string filehistory;
+   
+   ~SDResult()
+   {
+      // TODO BOALBE
+   }
 };
 
 struct ChangeList
@@ -38,6 +48,11 @@ struct ChangeList
    int identifier;
    std::vector< File > files;
    std::string author;
+   
+   ~ChangeList()
+   {
+      // TODO BOALBE
+   }
 };
 
 enum Error

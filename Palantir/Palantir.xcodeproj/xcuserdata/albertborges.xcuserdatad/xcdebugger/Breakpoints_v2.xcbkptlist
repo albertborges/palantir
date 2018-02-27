@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541449788.20292"
+            timestampString = "541461330.191047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "ParseStackDummyData()"
             landmarkType = "9">
          </BreakpointContent>
@@ -26,12 +26,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541449788.203092"
+            timestampString = "541461330.1925679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "exec(const char* cmd, std::string&amp; terminaloutput)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.1940221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
+            landmarkName = "concatenateNonCulpabaleChangeListFiles( std::vector&lt;ChangeList&gt;&amp; changelists )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.195111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
+            landmarkName = "concatenateNonCulpabaleChangeListFiles( std::vector&lt;ChangeList&gt;&amp; changelists )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.195769"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "concatenateNonCulpabaleChangeListFiles( std::vector&lt;ChangeList&gt;&amp; changelists )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.196264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "concatenateNonCulpabaleChangeListFiles( std::vector&lt;ChangeList&gt;&amp; changelists )"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,73 +106,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541449788.203199"
+            timestampString = "541461330.196761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector&lt; ChangeList &gt;&amp; changelists, IUIUpdater* updater )"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "RunSDCommands( NSArray* files, NSDateComponents* start, NSDateComponents* end, std::vector&lt; ChangeList &gt;&amp; changelists, IUIUpdater* updater = nullptr )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.197348"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "concatenateNonCulpabaleChangeListFiles( std::vector&lt;ChangeList&gt;&amp; changelists )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.198393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "concatenateNonCulpabaleChangeListFiles( std::vector&lt;ChangeList&gt;&amp; changelists )"
             landmarkType = "9">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
+                  symbolName = "concatenateNonCulpabaleChangeListFiles(std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;)"
                   moduleName = "Palantir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
-                  timestampString = "541449788.5479079"
+                  timestampString = "541460680.201992"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "239"
-                  endingLineNumber = "239"
-                  offsetFromSymbolStart = "986">
+                  startingLineNumber = "250"
+                  endingLineNumber = "250"
+                  offsetFromSymbolStart = "513">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
+                  symbolName = "concatenateNonCulpabaleChangeListFiles(std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;)"
                   moduleName = "Palantir"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
-                  timestampString = "541449788.549348"
+                  timestampString = "541460680.204641"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "239"
-                  endingLineNumber = "239"
-                  offsetFromSymbolStart = "1014">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
-                  moduleName = "Palantir"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
-                  timestampString = "541449788.55138"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "239"
-                  endingLineNumber = "239"
-                  offsetFromSymbolStart = "1028">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
-                  moduleName = "Palantir"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
-                  timestampString = "541449788.553532"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "239"
-                  endingLineNumber = "239"
-                  offsetFromSymbolStart = "1042">
+                  startingLineNumber = "250"
+                  endingLineNumber = "250"
+                  offsetFromSymbolStart = "947">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -120,12 +186,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541449788.203341"
+            timestampString = "541461330.200083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "ParseSDResult(SDResult result, NSDateComponents* start, NSDateComponents* end)"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "RunSDCommands( NSArray* files, NSDateComponents* start, NSDateComponents* end, std::vector&lt; ChangeList &gt;&amp; changelists, IUIUpdater* updater = nullptr )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Palantir/ParseStackAPI.mm"
+            timestampString = "541461330.200857"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "callsdchanges(NSArray* files, std::vector&lt;SDResult&gt;&amp; results)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
