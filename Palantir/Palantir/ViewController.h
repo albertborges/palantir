@@ -13,3 +13,13 @@
 
 @end
 
+class UIUpdater : public IUIUpdater
+{
+public:
+   void UpdateUIOnStartingSDFileHistory() override;
+   void UpdateUIOnFinishingSDFileHistory() override;
+   void UpdateUIOnStartingScanningOfFileHistories() override;
+   void UpdateUIOnEndingScanningOfFileHistories() override;
+   void UpdateUIOnStartingGettingInfoOnPossibleCulpableChangelists() override;
+   void UpdateUIOnEndingGettingInfoOnPossibleCulpableChangelists() override;
+};

@@ -6,10 +6,10 @@
 //  Copyright © 2018 Microsoft. All rights reserved.
 //
 
+#include "ParseStackAPI.h"
 #import "ViewController.h"
 #include <string>
 #include <vector>
-#include "ParseStackAPI.h"
 
 @implementation ViewController
 
@@ -39,7 +39,9 @@
    [endDate setSecond:00];
    
    std::vector< ChangeList > changelists;
-   Error status = ParseTimeProfilerStack(timeProfilerStack, startDate, endDate, changelists);
+   UIUpdater* updater = new UIUpdater();
+   Error status = ParseTimeProfilerStack(timeProfilerStack, startDate, endDate, changelists, updater);
+   delete updater;
 }
 
 
@@ -49,5 +51,35 @@
    // Update the view, if already loaded.
 }
 
-
 @end
+
+void UIUpdater::UpdateUIOnStartingSDFileHistory()
+{
+   printf("Updating UIOnStartingSDFileHistory...\n");
+}
+
+void UIUpdater::UpdateUIOnFinishingSDFileHistory()
+{
+   printf("Updating UIOnFinishingSDFileHistory...\n");
+}
+
+void UIUpdater::UpdateUIOnStartingScanningOfFileHistories()
+{
+   printf("Updating UIOnStartingScanningOfFileHistories...\n");
+}
+
+void UIUpdater::UpdateUIOnEndingScanningOfFileHistories()
+{
+   printf("Updating UIOnEndingScanningOfFileHistories...\n");
+}
+
+void UIUpdater::UpdateUIOnStartingGettingInfoOnPossibleCulpableChangelists()
+{
+   printf("Updating UIOnStartingGettingInfoOnPossibleCulpableChangelists...\n");
+}
+
+void UIUpdater::UpdateUIOnEndingGettingInfoOnPossibleCulpableChangelists()
+{
+   printf("Updating UIOnEndingGettingInfoOnPossibleCulpableChangelists...\n");
+}
+

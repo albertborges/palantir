@@ -27,6 +27,12 @@ struct File
    bool culpable; // Used to determine if this file is the reason why this CL is being marked as questionable for the UI
 };
 
+struct SDResult
+{
+   File file;
+   std::string filehistory;
+};
+
 struct ChangeList
 {
    int identifier;
@@ -38,8 +44,21 @@ enum Error
 {
    NoCorpConnectivity, // No Internet Connectivity or not connected to CorpNet
    CredentialInitializationNeeded, // Security system: Could not initialize security context: Ticket expired. User not authenticated.
+   FileResultMappingError, // We called SD with X number of files and received a differing amount of results
    NoError
 };
+
+class IUIUpdater
+{
+public:
+   virtual void UpdateUIOnStartingSDFileHistory() = 0;
+   virtual void UpdateUIOnFinishingSDFileHistory() = 0;
+   virtual void UpdateUIOnStartingScanningOfFileHistories() = 0;
+   virtual void UpdateUIOnEndingScanningOfFileHistories() = 0;
+   virtual void UpdateUIOnStartingGettingInfoOnPossibleCulpableChangelists() = 0;
+   virtual void UpdateUIOnEndingGettingInfoOnPossibleCulpableChangelists() = 0;
+};
+
 
 /*
 Sample stackData (NSString*) parameter:
@@ -64,7 +83,7 @@ Sample stackData (NSString*) parameter:
  [components setMinute:00];
  [components setSecond:00];
 */
-Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector< ChangeList >& changelists );
+Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector< ChangeList >& changelists, IUIUpdater* updater = nullptr );
 
 /*
  Sample stackData (NSString*) parameter:
@@ -128,6 +147,6 @@ Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateC
  [components setMinute:00];
  [components setSecond:00];
  */
- Error ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end, std::vector< ChangeList >& changelists );
+ Error ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end, std::vector< ChangeList >& changelists, IUIUpdater* updater = nullptr );
 
 #endif /* ParseStackAPI_hpp */

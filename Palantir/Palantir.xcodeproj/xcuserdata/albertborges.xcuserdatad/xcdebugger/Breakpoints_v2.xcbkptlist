@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.781593"
+            timestampString = "541449788.20292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "ParseStackDummyData()"
             landmarkType = "9">
          </BreakpointContent>
@@ -22,31 +22,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.7822779"
+            timestampString = "541449788.203092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "callsdchanges(NSArray* files)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.782899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "exec(const char* cmd, std::string&amp; terminaloutput)"
             landmarkType = "9">
          </BreakpointContent>
@@ -58,13 +42,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.783344"
+            timestampString = "541449788.203199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "exec(const char* cmd, std::string&amp; terminaloutput)"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector&lt; ChangeList &gt;&amp; changelists, IUIUpdater* updater )"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
+                  moduleName = "Palantir"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
+                  timestampString = "541449788.5479079"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "986">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
+                  moduleName = "Palantir"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
+                  timestampString = "541449788.549348"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "1014">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
+                  moduleName = "Palantir"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
+                  timestampString = "541449788.55138"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "1028">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParseXcodeStack(NSString*, NSDateComponents*, NSDateComponents*, std::__1::vector&lt;ChangeList, std::__1::allocator&lt;ChangeList&gt; &gt;&amp;, IUIUpdater*)"
+                  moduleName = "Palantir"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/albertborges/Desktop/palantirrepo/Palantir/Palantir/ParseStackAPI.mm"
+                  timestampString = "541449788.553532"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "1042">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,76 +120,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.7837451"
+            timestampString = "541449788.203341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "exec(const char* cmd, std::string&amp; terminaloutput)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.7841311"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "exec(const char* cmd, std::string&amp; terminaloutput)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.7845221"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "exec(const char* cmd, std::string&amp; terminaloutput)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.7849081"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector&lt; ChangeList &gt;&amp; changelists )"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Palantir/ParseStackAPI.mm"
-            timestampString = "541442752.7852859"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "splitbycomponent(std::string buffer, std::string delimeter)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "ParseSDResult(SDResult result, NSDateComponents* start, NSDateComponents* end)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

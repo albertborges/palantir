@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 static std::vector<std::string> splitbycomponent(std::string buffer, std::string delimeter)
 {
@@ -24,6 +25,7 @@ static std::vector<std::string> splitbycomponent(std::string buffer, std::string
       index = buffer.find(delimeter);
       tokens.push_back(token);
    }
+   tokens.push_back(buffer);
    return tokens;
 }
 
@@ -90,21 +92,26 @@ static Error exec(const char* cmd, std::string& terminaloutput) {
    
    terminaloutput = result;
    
-   if(terminaloutput.find("Could not initialize security context: Ticket expired. User not authenticated.") != std::string::npos)
+   if(terminaloutput.find("User not authenticated.\n") != std::string::npos)
       return Error::CredentialInitializationNeeded;
+   else if(terminaloutput.find("Connect to server failed") != std::string::npos)
+      return Error::NoCorpConnectivity;
    
    std::vector<std::string>terminaloutputvec = splitbycomponent(result, "Enlistment has been initialized successfully!\n");
+   
+   terminaloutput = terminaloutputvec[1];
    
    return Error::NoError;
 }
 
-static std::string callsdchanges(NSArray* files)
+static Error callsdchanges(NSArray* files, std::vector<SDResult>& results)
 {
    NSMutableString* cmd = [[NSMutableString alloc] init];
    for(NSString* file : files)
    {
       [cmd appendString:@"sd changes "];
       [cmd appendString:file];
+      [cmd appendString:@" 2>&1"];
       [cmd appendString:@" && "];
       [cmd appendString:@"echo '###'"];
       [cmd appendString:@" && "];
@@ -112,8 +119,52 @@ static std::string callsdchanges(NSArray* files)
    [cmd appendString:@"echo '###'"];
    
    std::string terminalouput;
-   exec([cmd cStringUsingEncoding:[NSString defaultCStringEncoding]], terminalouput);
-   return terminalouput;
+   Error status = exec([cmd cStringUsingEncoding:[NSString defaultCStringEncoding]], terminalouput);
+   
+   std::vector<std::string> filehistories = splitbycomponent(terminalouput, "###");
+   
+   if( [files count] != filehistories.size() )
+      return FileResultMappingError;
+   
+   std::vector<SDResult> rvec;
+   for(int i=0;i<filehistories.size();i++)
+   {
+      SDResult* result = new SDResult();
+      File* file = new File();
+      file->filename = [[files objectAtIndex:i] cStringUsingEncoding:[NSString defaultCStringEncoding]];
+      file->culpable = true;
+      result->file = *file;
+      result->filehistory = filehistories[i];
+      rvec.push_back(*result);
+   }
+   results = rvec;
+   return status;
+}
+
+static std::vector<ChangeList> ParseSDResult(SDResult result, NSDateComponents* start, NSDateComponents* end)
+{
+   std::vector<ChangeList>changeLists;
+   std::vector<std::string> changes = splitbycomponent(result.filehistory, "\n");
+   
+   int size = (int)changes.size();
+   for(int i=size-1;i>=0;i--)
+   {
+      if(changes[i].find("Change") == std::string::npos)
+         changes.erase(changes.begin() + i);
+   }
+   
+   return changeLists;
+}
+
+/* Used to merge changelists. Sometimes duplicate changelists result from multiple calls to ParseSDResult because the same changelist could have touched multiple culpable files */
+static void mergeChangeLists( std::vector<ChangeList>& changelists )
+{
+   // TODO
+}
+
+static void concatenateNonCulpabaleChangeListFiles( std::vector<ChangeList>& changelists )
+{
+   // TODO
 }
 
 static std::vector< ChangeList > ParseStackDummyData()
@@ -154,7 +205,7 @@ static std::vector< ChangeList > ParseStackDummyData()
    return changelists;
 }
 
-Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector< ChangeList >& changelists )
+Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector< ChangeList >& changelists, IUIUpdater* updater )
 {
    NSArray* frames = [stackData componentsSeparatedByString:@"#"];
    NSMutableArray* files = [[NSMutableArray alloc] init];
@@ -187,7 +238,7 @@ Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateC
    return NoError;
 }
 
-Error ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end, std::vector< ChangeList >& changelists )
+Error ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end, std::vector< ChangeList >& changelists, IUIUpdater* updater )
 {
    NSArray* frames = [stackData componentsSeparatedByString:@"\n"];
    NSMutableArray* files = [[NSMutableArray alloc] init];
@@ -212,12 +263,33 @@ Error ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDa
       }
    }
    
-//   printf("%s", callsdchanges(files).c_str());
-//   std::string buffer = "hello###world###string1###string2";
-//   splitbycomponent(buffer, "###");
-   // sd changes -m 5 /Users/albertborges/sd/dev/richedit/src/OLS.CPP
+   if(updater)
+      updater->UpdateUIOnStartingSDFileHistory();
+   std::vector<SDResult> results;
+   Error status = callsdchanges(files, results);
+   
+   if( status != NoError )
+      return status;
+   
+   if(updater)
+      updater->UpdateUIOnFinishingSDFileHistory();
+   
+   if(updater)
+      updater->UpdateUIOnStartingScanningOfFileHistories();
+   std::vector<ChangeList> changelistsFound;
+   for( SDResult result : results)
+   {
+      std::vector<ChangeList> temp = ParseSDResult(result, start, end);
+      changelistsFound.insert( changelistsFound.end(), temp.begin(), temp.end() );
+   }
+   mergeChangeLists(changelistsFound);
+   if(updater)
+      updater->UpdateUIOnEndingScanningOfFileHistories();
+   
+   concatenateNonCulpabaleChangeListFiles(changelistsFound);
 
    changelists = ParseStackDummyData();
+
    return NoError;
 }
 
