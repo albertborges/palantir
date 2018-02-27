@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #import <Cocoa/Cocoa.h>
+#include <string>
+#include <vector>
 
 enum InputType
 {

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Microsoft. All rights reserved.
 //
 
-#include <string>
-#include <vector>
 #include <array>
 #include "ParseStackAPI.h"
 #include <stdio.h>
