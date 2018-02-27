@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		A81084C520447D8A00EBD543 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81084C420447D8A00EBD543 /* AppDelegate.m */; };
-		A81084C820447D8A00EBD543 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A81084C720447D8A00EBD543 /* ViewController.m */; };
+		A81084C820447D8A00EBD543 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A81084C720447D8A00EBD543 /* ViewController.mm */; };
 		A81084CA20447D8A00EBD543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A81084C920447D8A00EBD543 /* Assets.xcassets */; };
 		A81084CD20447D8A00EBD543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A81084CB20447D8A00EBD543 /* Main.storyboard */; };
 		A81084D020447D8A00EBD543 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A81084CF20447D8A00EBD543 /* main.m */; };
 		A8328406204487B4007333C9 /* ParseStackAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8328404204487B4007333C9 /* ParseStackAPI.mm */; };
+		A8ECAE2B2044C65D00D943DA /* list_enlistments.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8ECAE292044C65D00D943DA /* list_enlistments.sh */; };
+		A8ECAE2C2044C65D00D943DA /* plist_env.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8ECAE2A2044C65D00D943DA /* plist_env.sh */; };
+		A8ECAE2F2044CCDE00D943DA /* setupEnlistment.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8ECAE2E2044CCDE00D943DA /* setupEnlistment.sh */; };
+		A8ECAE352044E87E00D943DA /* apexfunctions.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8ECAE342044E87E00D943DA /* apexfunctions.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +24,7 @@
 		A81084C320447D8A00EBD543 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A81084C420447D8A00EBD543 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A81084C620447D8A00EBD543 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A81084C720447D8A00EBD543 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A81084C720447D8A00EBD543 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		A81084C920447D8A00EBD543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A81084CC20447D8A00EBD543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A81084CE20447D8A00EBD543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,6 +32,10 @@
 		A81084D120447D8A00EBD543 /* Palantir.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Palantir.entitlements; sourceTree = "<group>"; };
 		A8328404204487B4007333C9 /* ParseStackAPI.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ParseStackAPI.mm; sourceTree = "<group>"; };
 		A8328405204487B4007333C9 /* ParseStackAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStackAPI.h; sourceTree = "<group>"; };
+		A8ECAE292044C65D00D943DA /* list_enlistments.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = list_enlistments.sh; sourceTree = "<group>"; };
+		A8ECAE2A2044C65D00D943DA /* plist_env.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = plist_env.sh; sourceTree = "<group>"; };
+		A8ECAE2E2044CCDE00D943DA /* setupEnlistment.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setupEnlistment.sh; sourceTree = "<group>"; };
+		A8ECAE342044E87E00D943DA /* apexfunctions.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = apexfunctions.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +68,12 @@
 		A81084C220447D8A00EBD543 /* Palantir */ = {
 			isa = PBXGroup;
 			children = (
+				A8ECAE292044C65D00D943DA /* list_enlistments.sh */,
+				A8ECAE2A2044C65D00D943DA /* plist_env.sh */,
 				A81084C320447D8A00EBD543 /* AppDelegate.h */,
 				A81084C420447D8A00EBD543 /* AppDelegate.m */,
 				A81084C620447D8A00EBD543 /* ViewController.h */,
-				A81084C720447D8A00EBD543 /* ViewController.m */,
+				A81084C720447D8A00EBD543 /* ViewController.mm */,
 				A8328404204487B4007333C9 /* ParseStackAPI.mm */,
 				A8328405204487B4007333C9 /* ParseStackAPI.h */,
 				A81084C920447D8A00EBD543 /* Assets.xcassets */,
@@ -71,6 +81,8 @@
 				A81084CE20447D8A00EBD543 /* Info.plist */,
 				A81084CF20447D8A00EBD543 /* main.m */,
 				A81084D120447D8A00EBD543 /* Palantir.entitlements */,
+				A8ECAE2E2044CCDE00D943DA /* setupEnlistment.sh */,
+				A8ECAE342044E87E00D943DA /* apexfunctions.sh */,
 			);
 			path = Palantir;
 			sourceTree = "<group>";
@@ -85,6 +97,7 @@
 				A81084BC20447D8A00EBD543 /* Sources */,
 				A81084BD20447D8A00EBD543 /* Frameworks */,
 				A81084BE20447D8A00EBD543 /* Resources */,
+				A8ECAE362044EE5700D943DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -134,18 +147,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				A81084CA20447D8A00EBD543 /* Assets.xcassets in Resources */,
+				A8ECAE2C2044C65D00D943DA /* plist_env.sh in Resources */,
+				A8ECAE352044E87E00D943DA /* apexfunctions.sh in Resources */,
 				A81084CD20447D8A00EBD543 /* Main.storyboard in Resources */,
+				A8ECAE2F2044CCDE00D943DA /* setupEnlistment.sh in Resources */,
+				A8ECAE2B2044C65D00D943DA /* list_enlistments.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A8ECAE362044EE5700D943DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp ~/.enlistments.plist Palantir/enlistments.plist\nls Palantir/enlistments.plist";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A81084BC20447D8A00EBD543 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A81084C820447D8A00EBD543 /* ViewController.m in Sources */,
+				A81084C820447D8A00EBD543 /* ViewController.mm in Sources */,
 				A8328406204487B4007333C9 /* ParseStackAPI.mm in Sources */,
 				A81084D020447D8A00EBD543 /* main.m in Sources */,
 				A81084C520447D8A00EBD543 /* AppDelegate.m in Sources */,
