@@ -38,7 +38,8 @@
    [endDate setMinute:00];
    [endDate setSecond:00];
    
-   std::vector< ChangeList > changelists = ParseTimeProfilerStack(timeProfilerStack, startDate, endDate);
+   std::vector< ChangeList > changelists;
+   Error status = ParseTimeProfilerStack(timeProfilerStack, startDate, endDate, changelists);
 }
 
 

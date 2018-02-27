@@ -15,15 +15,25 @@
 #include <iostream>
 #include <fstream>
 
-static std::string exec(const char* cmd) {
+static std::vector<std::string> splitbycomponent(std::string buffer, std::string delimeter)
+{
+   size_t index = buffer.find(delimeter);
+   std::vector<std::string>tokens;
+   while(index != std::string::npos)
+   {
+      std::string token = buffer.substr(0, index);
+      buffer = buffer.substr(index+delimeter.size());
+      index = buffer.find(delimeter);
+      tokens.push_back(token);
+   }
+   return tokens;
+}
+
+static Error exec(const char* cmd, std::string& terminaloutput) {
    std::array<char, 128> buffer;
    std::string result;
-   
    NSBundle* thisBundle = [NSBundle mainBundle];
-   NSString* setupEnlistmentPath;
-   setupEnlistmentPath = [thisBundle pathForResource:@"setupEnlistment" ofType:@"sh"];
-   const char* setupEnlistmentPathCStr = [setupEnlistmentPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
-
+   
    NSString* listEnlistmentsPath;
    listEnlistmentsPath = [thisBundle pathForResource:@"list_enlistments" ofType:@"sh"];
    const char* listEnlistmentsPathCStr = [listEnlistmentsPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
@@ -36,7 +46,11 @@ static std::string exec(const char* cmd) {
    
    std::vector< std::string > cmds;
    int cmdlength = 0;
-
+   
+   NSString* setupEnlistmentPath;
+   setupEnlistmentPath = [thisBundle pathForResource:@"setupEnlistment" ofType:@"sh"];
+   const char* setupEnlistmentPathCStr = [setupEnlistmentPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+   
    std::ifstream myfile (setupEnlistmentPathCStr);
    std::string line;
    if (myfile.is_open())
@@ -50,26 +64,58 @@ static std::string exec(const char* cmd) {
       }
       myfile.close();
    }
-
+   
    char* cmdbuffer = (char*)malloc(cmd1size+cmdlength+strlen(cmd)+1);
    
+   // Load listEnlistment.sh in the command buffer
    strcat(cmdbuffer, cmd1a);
    strcat(cmdbuffer, listEnlistmentsPathCStr);
    strcat(cmdbuffer, cmd1c);
    strcat(cmdbuffer, cmdcat);
+   
+   // Load all the commands in setupEnlistment.sh in the command buffer
    for(int i=0; i<cmds.size();i++)
-      strcat(cmdbuffer, cmds[i].c_str());
+   strcat(cmdbuffer, cmds[i].c_str());
+   
+   // Load the paramter command in the command buffer
    strcat(cmdbuffer, cmd);
    strcat(cmdbuffer, "\0");
    
+   // Run the commands
    std::shared_ptr<FILE> pipe(popen(cmdbuffer, "r+"), pclose);
    
    if (!pipe) throw std::runtime_error("popen() failed!");
    while (!feof(pipe.get())) {
       if (fgets(buffer.data(), 128, pipe.get()) != nullptr)
-         result += buffer.data();
+      result += buffer.data();
    }
-   return result;
+   
+   terminaloutput = result;
+   
+   if(terminaloutput.find("Could not initialize security context: Ticket expired. User not authenticated.") != std::string::npos)
+      return Error::CredentialInitializationNeeded;
+   
+   std::vector<std::string>terminaloutputvec = splitbycomponent(result, "Enlistment has been initialized successfully!\n");
+   
+   return Error::NoError;
+}
+
+static std::string callsdchanges(NSArray* files)
+{
+   NSMutableString* cmd = [[NSMutableString alloc] init];
+   for(NSString* file : files)
+   {
+      [cmd appendString:@"sd changes "];
+      [cmd appendString:file];
+      [cmd appendString:@" && "];
+      [cmd appendString:@"echo '###'"];
+      [cmd appendString:@" && "];
+   }
+   [cmd appendString:@"echo '###'"];
+   
+   std::string terminalouput;
+   exec([cmd cStringUsingEncoding:[NSString defaultCStringEncoding]], terminalouput);
+   return terminalouput;
 }
 
 static std::vector< ChangeList > ParseStackDummyData()
@@ -77,7 +123,7 @@ static std::vector< ChangeList > ParseStackDummyData()
    /*
     PARSING...
     */
-   
+
    // IGNORE MEMORY LEAKS. PURELY FOR EXAMPLE PURPOSES. WILL USE SMART POINTERS LATER.
    struct File* file1obj = new File();
    std::string file1 = "/Users/albertborges/sd/dev/oart/text/linelayout.cpp";
@@ -110,7 +156,7 @@ static std::vector< ChangeList > ParseStackDummyData()
    return changelists;
 }
 
-std::vector< ChangeList > ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime )
+Error ParseXcodeStack( NSString* stackData, NSDateComponents* startTime, NSDateComponents* endTime, std::vector< ChangeList >& changelists )
 {
    NSArray* frames = [stackData componentsSeparatedByString:@"#"];
    NSMutableArray* files = [[NSMutableArray alloc] init];
@@ -135,14 +181,15 @@ std::vector< ChangeList > ParseXcodeStack( NSString* stackData, NSDateComponents
       }
    }
    
-   printf("%s", exec("sd changes -m 5 oart/text/linelayout.cpp\0").c_str());
-   
-   
-   // sd changes -m 5 /Users/albertborges/sd/dev/richedit/src/OLS.CPP
-   return ParseStackDummyData();
+//   std::string buffer = callsdchanges(files);
+//   std::vector<string>
+// sd changes -m 5 /Users/albertborges/sd/dev/richedit/src/OLS.CPP
+
+   changelists = ParseStackDummyData();
+   return NoError;
 }
 
-std::vector< ChangeList > ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end )
+Error ParseTimeProfilerStack( NSString* stackData, NSDateComponents* start, NSDateComponents* end, std::vector< ChangeList >& changelists )
 {
    NSArray* frames = [stackData componentsSeparatedByString:@"\n"];
    NSMutableArray* files = [[NSMutableArray alloc] init];
@@ -167,10 +214,12 @@ std::vector< ChangeList > ParseTimeProfilerStack( NSString* stackData, NSDateCom
       }
    }
    
-   printf("%s", exec("sd changes -m 5 oart/text/linelayout.cpp\0").c_str());
-   
-   
+//   printf("%s", callsdchanges(files).c_str());
+//   std::string buffer = "hello###world###string1###string2";
+//   splitbycomponent(buffer, "###");
    // sd changes -m 5 /Users/albertborges/sd/dev/richedit/src/OLS.CPP
-   return ParseStackDummyData();
+
+   changelists = ParseStackDummyData();
+   return NoError;
 }
 
